@@ -37,7 +37,7 @@ Pkg.add("CSV")
 Pkg.add("PyCall")
 ```
 
-At this point if you are using a venv virtual environment you need to configure you julia python variable
+At this point if you are using a venv virtual environment or non default python you need to configure you julia python variable
 
 Use ```ENV["PYTHON"] = "path/to/venv/bin/python"``` to do this then call ```Pkg.build("PyCall")``` to rebuild the package.
 
