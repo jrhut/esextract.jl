@@ -126,11 +126,13 @@ Reads a DataFrame in from csv, json and arrow parquet
 ...
 ```
 
-Examlpe without optional env variables 
+## Examples
+
+Without optional env variables 
 
 ```get_query_dataframe(index="index01", paging_id_field="id", paging_time_field="date", fields_to_search=["body"], search_string="Hello!")```
 
-Example with optional env variables
+With optional env variables
 
 ```get_query_json(field_to_exist="url", fields_to_search=["body"], search_string="Bye!")```
 
