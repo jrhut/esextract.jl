@@ -102,3 +102,26 @@ Takes elasticsearch query parameters and returns result as a JSON dictionary
 - `Dict`: Json results
 ...
 ```
+
+```
+  write_dataframe(path, df)
+
+Writes a DataFrame to CSV
+...
+# Arguments
+- `path::String`: path to file output
+- `df::DataFrame`: DataFrame to save
+...
+```
+
+```
+  read_dataframe(path)
+  
+Reads a DataFrame in from csv, json and arrow parquet
+...
+# Arguments
+- `path::String`: path to file output
+# Returns
+- `df::DataFrame`: DataFrame from file
+...
+```
