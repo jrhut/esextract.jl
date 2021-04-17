@@ -17,7 +17,7 @@ ELASTIC_USER = {{ELASTICSEARCH LOGIN USERNAME}}
 ELASTIC_SECRET = {{ELASTICSEARCH LOGIN PASSWORD}}
 ```
 
-Optionally to make life easier also configure the default variables below. This will save you needing extra arguments when making a query.
+Optionally (reccomended) to make life easier also configure the default variables below. This will save you needing extra arguments when making a query.
 
 ```
 DEFAULT_INDEX = {{DEFAULT INDEX TO QUERY}}
