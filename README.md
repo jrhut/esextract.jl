@@ -39,9 +39,9 @@ Pkg.add("PyCall")
 
 At this point if you are using a venv virtual environment or non default python you need to configure you julia python variable
 
-Use ```ENV["PYTHON"] = "path/to/venv/bin/python"``` to do this then call ```Pkg.build("PyCall")``` to rebuild the package.
+Use ```ENV["PYTHON"] = "path/to/venv/bin/python"``` to do configure the variable then call ```Pkg.build("PyCall")``` to rebuild the package.
 
-Now all thats left to use this project is starting up the project environment with ```Pkg.activate("path/to/local/repo")```
+Now all thats left to use this project is starting up the project environment with ```Pkg.activate("path/to/esextract")```
 
 This will allow you to finally use ```using esextract```
 
