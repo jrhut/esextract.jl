@@ -14,7 +14,7 @@ Converts from a Python Pandas DataFrame to a Julia DataFrame
 - `DataFrame`: julia DataFrame
 ...
 """
-function p_df_to_j_df(p_df)
+function p_df_to_j_df(p_df::PyObject)
     println("Converting from python DataFrame to julia DataFrame")
     cols = p_df[:columns]
     j_df = DataFrame(Any[collect(values(p_df[c])) for c in cols], map(Symbol, cols))
@@ -44,8 +44,11 @@ Takes elasticsearch query parameters and returns result as DataFrame
 - `DataFrame`: julia DataFrame
 ...
 """
-function get_query_dataframe(;index=nothing, paging_id_field=nothing, paging_time_field=nothing, return_fields=[], fields_to_search=[], 
-    search_string=nothing, field_to_exist=nothing, date_field=nothing, start_date=nothing, end_date=nothing, is_match_all=false)
+function get_query_dataframe(; index::Union{String, Nothing}=nothing, paging_id_field::Union{String, Nothing}=nothing, 
+    paging_time_field::Union{String, Nothing}=nothing, return_fields::Union{Vector{String}, Nothing}=String[], 
+    fields_to_search::Union{Vector{String}, Nothing}=String[], search_string::Union{String, Nothing}=nothing, 
+    field_to_exist::Union{String, Nothing}=nothing, date_field::Union{String, Nothing}=nothing, 
+    start_date::Union{String, Nothing}=nothing, end_date::Union{String, Nothing}=nothing, is_match_all::Bool=false)
     
     es = pyimport("esextract")
 
@@ -81,8 +84,11 @@ Takes elasticsearch query parameters and returns result as a JSON dictionary
 - `Dict`: Json results
 ...
 """
-function get_query_json(;index=nothing, paging_id_field=nothing, paging_time_field=nothing, return_fields=[], fields_to_search=[], 
-    search_string=nothing, field_to_exist=nothing, date_field=nothing, start_date=nothing, end_date=nothing, is_match_all=false)
+function get_query_json(; index::Union{String, Nothing}=nothing, paging_id_field::Union{String, Nothing}=nothing, 
+    paging_time_field::Union{String, Nothing}=nothing, return_fields::Union{Vector{String}, Nothing}=String[], 
+    fields_to_search::Union{Vector{String}, Nothing}=String[], search_string::Union{String, Nothing}=nothing, 
+    field_to_exist::Union{String, Nothing}=nothing, date_field::Union{String, Nothing}=nothing, 
+    start_date::Union{String, Nothing}=nothing, end_date::Union{String, Nothing}=nothing, is_match_all::Bool=false)
 
     es = pyimport("esextract")
 
@@ -100,7 +106,7 @@ Writes a DataFrame to CSV
 - `df::DataFrame`: DataFrame to save
 ...
 """
-function write_dataframe(path, df)
+function write_dataframe(path::String, df::DataFrame)
     println("Writing dataframe to csv")
     CSV.write(path, df)
 end
@@ -114,7 +120,7 @@ Reads a DataFrame in from csv, json and arrow parquet
 - `df::DataFrame`: DataFrame from file
 ...
 """
-function read_dataframe(path)
+function read_dataframe(path::String)
     println("Reading data into dataframe")
     es = pyimport("esextract")
     p_df = es.read_dataframe_from_file(path)
