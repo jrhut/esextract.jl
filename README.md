@@ -30,9 +30,13 @@ To install the Julia package use ```Pkg.add(url="https://github.com/jrhut/esextr
 
 At this point if you are using a venv virtual environment or non default python you need to configure you julia python variable.
 
-First activate your virtual environment then lauch Julia from the same shell. Now enter ```ENV["PYTHON"] = "path/to/venv/bin/python"``` to configure the python version Julia will use and then call ```Pkg.build("PyCall")``` to rebuild the package.
+First activate your virtual environment then lauch Julia from the same shell. 
+
+Now enter ```ENV["PYTHON"] = "path/to/venv/bin/python"``` to configure the python version Julia will use and then call ```Pkg.build("PyCall")``` to rebuild the package.
 
 Now you can import with ```using esextract```
+
+Remember to run your scripts from you virtual environment!
 
 ## Usage
 
