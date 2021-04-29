@@ -6,7 +6,7 @@ Query elasticsearch databases straight into a DataFrame. Wraps a python package 
 
 Requires python3.8, steps for using venv virtual environment will be described below.
 
-Install the python package esextract ```pip install -i https://test.pypi.org/simple/ esextract==0.0.1```
+Install the python package esextract ```pip install esextract```
 
 Now configue some environment variables as so
 
@@ -26,24 +26,13 @@ PAGE_ID_FIELD = {{THE DOCUMENT ID FIELD TO PAGE ON}}
 PAGE_TIME_FIELD = {{THE DOCUMENT DATE FIELD TO PAGE ON}}
 ```
 
-Now the python package is configured clone this repository to your local system.
+To install the Julia package use ```Pkg.add(url="https://github.com/jrhut/esextract.jl")```
 
-Make sure you have the dependancies with
+At this point if you are using a venv virtual environment or non default python you need to configure you julia python variable.
 
-```
-using Pkg
-Pkg.add("DataFrames")
-Pkg.add("CSV")
-Pkg.add("PyCall")
-```
+First activate your virtual environment then lauch Julia from the same shell. Now enter ```ENV["PYTHON"] = "path/to/venv/bin/python"``` to configure the python version Julia will use and then call ```Pkg.build("PyCall")``` to rebuild the package.
 
-At this point if you are using a venv virtual environment or non default python you need to configure you julia python variable
-
-Use ```ENV["PYTHON"] = "path/to/venv/bin/python"``` to do configure the variable then call ```Pkg.build("PyCall")``` to rebuild the package.
-
-Now all thats left to use this project is starting up the project environment with ```Pkg.activate("path/to/esextract")```
-
-This will allow you to finally use ```using esextract```
+Now you can import with ```using esextract```
 
 ## Usage
 
